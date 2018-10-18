@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			body {
+				font-family: "Gill Sans", Helvetica, sans-serif;
+				font-size: 16px;
+				color: #222;
+			}
+			h1#shrug {
+				margin-top: 5rem;
+				margin-top: 10vh;
+				height: 10vh;
+				min-height: 4rem;
+				font-size: 5rem;
+				text-align: center;
+			}
+			.explain {
+				font-size: 1.5em;
+				margin-top: 20vh;
+				text-align: center;
+			}
+			#success {
+				margin-top: 1em;
+			}
+			.footer {
+				position: absolute;
+				width: 100%;
+				bottom: 0px;
+				margin-bottom: 1em;
+				text-align: center;
+			}
+		</style>
+		<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+
+	</head>
+	<body>
+		<h1 id="shrug" data-clipboard-text="¯\_(ツ)_/¯">¯\_(ツ)_/¯</h1>
+
+		<div class="explain">Click the shrug to copy it.
+			<div id="success"></div>
+		</div>
+		
+		<div class="footer">Like it? Tell your friends. Or don't, I guess, I'm not your boss. ¯\_(ツ)_/¯</div>
+	</body>
+</html>
+
+<script>
+let messageOn = 0
+
+let messages = [
+	'You copied it! Nice!',
+	"You copied it again! It's really copied now!",
+	"Copied to heck!",
+	"You know, it was already copied before.",
+	"You... don't need to keep copying it.",
+]
+
+function successAnimation() {
+	let shrug = document.getElementById('shrug')
+	shrug.innerHTML = 'copied!'
+	let success = document.getElementById('success')
+	success.innerHTML = messages[messageOn++ % messages.length]
+	setTimeout(function() {
+		shrug.innerHTML = '¯\\_(ツ)_/¯'
+	},
+	500)
+}
+
+let clipboard = new ClipboardJS('#shrug')
+
+clipboard.on('success', function(e) {
+	successAnimation()
+})
+</script>
