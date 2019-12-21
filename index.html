@@ -51,6 +51,26 @@
 			margin-bottom: 1em;
 			text-align: center;
 		}
+		ul.share-buttons{
+			list-style: none;
+			padding: 0;
+			margin: 0.5em 0;
+		}
+
+		ul.share-buttons li{
+			display: inline;
+		}
+
+		ul.share-buttons .sr-only{
+			position: absolute;
+			clip: rect(1px 1px 1px 1px);
+			clip: rect(1px, 1px, 1px, 1px);
+			padding: 0;
+			border: 0;
+			height: 1px;
+			width: 1px;
+			overflow: hidden;
+		}
 	</style>
 	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 
@@ -60,11 +80,20 @@
 		<h1 id="shrug" data-clipboard-text="¯\_(ツ)_/¯">¯\_(ツ)_/¯</h1>
 	</div>
 
-	<div class="explain">Click the shrug to copy it.
+	<div class="explain"><span id="actionText">Click</span> the shrug to copy it.
 		<div id="success"></div>
 	</div>
 
-	<div class="footer">Like it? Tell your friends.</div>
+	<div class="footer">
+		Like it? Tell your friends.
+		<!-- ty https://simplesharingbuttons.com/ -->
+		<ul class="share-buttons">
+			<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fshrug.click&quote=" title="Share on Facebook" target="_blank"><img alt="Share on Facebook" src="images/simple_icons_black/Facebook.png" /></a></li>
+			<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fshrug.click&text=:%20http%3A%2F%2Fshrug.click" target="_blank" title="Tweet"><img alt="Tweet" src="images/simple_icons_black/Twitter.png" /></a></li>
+			<li><a href="http://www.tumblr.com/share?v=3&u=http%3A%2F%2Fshrug.click&quote=&s=" target="_blank" title="Post to Tumblr"><img alt="Post to Tumblr" src="images/simple_icons_black/Tumblr.png" /></a></li>
+			<li><a href="http://www.reddit.com/submit?url=http%3A%2F%2Fshrug.click&title=" target="_blank" title="Submit to Reddit"><img alt="Submit to Reddit" src="images/simple_icons_black/Reddit.png" /></a></li>
+		</ul>
+	</div>
 </body>
 </html>
 
@@ -90,4 +119,25 @@
 	})
 
 	fitText(document.getElementById('shrug'), 0.6)
+
+	//https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript/4819886#4819886
+	function is_touch_device4() {
+		var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+		var mq = function(query) {
+			return window.matchMedia(query).matches;
+		}
+		if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+			return true;
+		}
+		// include the 'heartz' as a way to have a non matching MQ to help terminate the join
+		// https://git.io/vznFH
+		var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+		return mq(query);
+	}
+
+	if(is_touch_device4()) {
+		console.log('ayy im walkin here')
+		let actionTextElement = document.getElementById('actionText')
+		actionTextElement.innerHTML = 'Tap'
+	}
 </script>
