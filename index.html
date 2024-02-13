@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>¯\_(ツ)_/¯ - shrug.click</title>
@@ -73,13 +74,12 @@
 			overflow: hidden;
 		}
 	</style>
-	<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div id="shrugholder">
-		<h1 id="shrug" data-clipboard-text="¯\_(ツ)_/¯">¯\_(ツ)_/¯</h1>
+		<h1 id="shrug">¯\_(ツ)_/¯</h1>
 	</div>
 
 	<div class="explain"><span id="actionText">Click</span> the shrug to copy it.
@@ -114,11 +114,13 @@
 		500)
 	}
 
-	let clipboard = new ClipboardJS('#shrug')
-
-	clipboard.on('success', function(e) {
-		successAnimation()
-	})
+	shrug.onclick = () => {
+		// Copy the text inside the text field
+		navigator.clipboard
+			.writeText('¯\\_(ツ)_/¯')
+			.then(() => {successAnimation()})
+			.catch((e) => {consoler.log(e)});
+	}
 
 	fitText(document.getElementById('shrug'), 0.6)
 
