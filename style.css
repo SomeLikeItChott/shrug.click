@@ -19,6 +19,9 @@ body {
     font-size: 16px;
     margin: 0;
 }
+a {
+    text-decoration: none;
+}
 div#shrugholder {
     max-width: 50em;
     margin: 0px auto;
@@ -65,4 +68,7 @@ ul.share-buttons .sr-only{
     height: 1px;
     width: 1px;
     overflow: hidden;
+}
+#bookmarklet-wrapper {
+    display: none;
 }

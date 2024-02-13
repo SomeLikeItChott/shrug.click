@@ -39,4 +39,7 @@ function is_touch_device4() {
 if(is_touch_device4()) {
     let actionTextElement = document.getElementById('actionText')
     actionTextElement.innerHTML = 'Tap'
+} else {
+    let bookmarkletWrapper = document.getElementById('bookmarklet-wrapper')
+    bookmarkletWrapper.style.display = 'block'
 }
