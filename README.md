@@ -4,3 +4,5 @@ Ever wanted to express a wry sense of resignation? Tired of searching your emoji
 
 Now there's a better way. Just head over to [shrug.click](shrug.click) on your desktop, mobile phone, or smart refridgerator and click or tap the big shrug. It'll be copied into your clipboard and you can express playful apathy with even less effort.
 
+There's even a bookmarklet at the bottom for desktop users who need to shrug with even less work.
+
