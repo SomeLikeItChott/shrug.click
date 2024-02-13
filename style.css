@@ -1,0 +1,68 @@
+@-webkit-keyframes cssAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.animation {
+    animation-name: cssAnimation;
+    animation-duration:0.5s;	
+}
+
+body {
+    font-family: "Gill Sans", Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+div#shrugholder {
+    max-width: 50em;
+    margin: 0px auto;
+}
+h1#shrug {
+    margin-top: 5rem;
+    margin-top: 10vh;
+    height: 10vh;
+    min-height: 4rem;
+    font-size: 5rem;
+    text-align: center;
+}
+.explain {
+    font-size: 1.5em;
+    margin-top: 30vh;
+    text-align: center;
+}
+#success {
+    margin-top: 1em;
+}
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+ul.share-buttons{
+    list-style: none;
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+ul.share-buttons li{
+    display: inline;
+}
+
+ul.share-buttons .sr-only{
+    position: absolute;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}

@@ -1,79 +1,11 @@
 <!DOCTYPE html>
+<meta name=color-scheme content="light dark">
 <html>
 <head>
 	<title>¯\_(ツ)_/¯ - shrug.click</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		@-webkit-keyframes cssAnimation {
-			0% {
-				transform: scale(1);
-			}
-			50% {
-				transform: scale(1.5);
-			}
-			100% {
-				transform: scale(1);
-			}
-		}
-		.animation {
-			animation-name: cssAnimation;
-			animation-duration:0.5s;	
-		}
-		body {
-			font-family: "Gill Sans", Helvetica, sans-serif;
-			font-size: 16px;
-			color: #222;
-			margin: 0;
-		}
-		div#shrugholder {
-			max-width: 50em;
-			margin: 0px auto;
-		}
-		h1#shrug {
-			margin-top: 5rem;
-			margin-top: 10vh;
-			height: 10vh;
-			min-height: 4rem;
-			font-size: 5rem;
-			text-align: center;
-		}
-		.explain {
-			font-size: 1.5em;
-			margin-top: 30vh;
-			text-align: center;
-		}
-		#success {
-			margin-top: 1em;
-		}
-		.footer {
-			position: absolute;
-			width: 100%;
-			bottom: 0px;
-			margin-bottom: 1em;
-			text-align: center;
-		}
-		ul.share-buttons{
-			list-style: none;
-			padding: 0;
-			margin: 0.5em 0;
-		}
-
-		ul.share-buttons li{
-			display: inline;
-		}
-
-		ul.share-buttons .sr-only{
-			position: absolute;
-			clip: rect(1px 1px 1px 1px);
-			clip: rect(1px, 1px, 1px, 1px);
-			padding: 0;
-			border: 0;
-			height: 1px;
-			width: 1px;
-			overflow: hidden;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -100,47 +32,4 @@
 </html>
 
 <script src="fittext.js"></script>
-<script>
-	let shrug = document.getElementById('shrug')
-
-	function successAnimation() {
-		shrug.innerHTML = 'copied!'
-		shrug.classList.add('animation')
-		let success = document.getElementById('success')
-		setTimeout(function() {
-			shrug.innerHTML = '¯\\_(ツ)_/¯'
-			shrug.classList.remove('animation')
-		},
-		500)
-	}
-
-	shrug.onclick = () => {
-		// Copy the text inside the text field
-		navigator.clipboard
-			.writeText('¯\\_(ツ)_/¯')
-			.then(() => {successAnimation()})
-			.catch((e) => {consoler.log(e)});
-	}
-
-	fitText(document.getElementById('shrug'), 0.6)
-
-	//https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript/4819886#4819886
-	function is_touch_device4() {
-		var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
-		var mq = function(query) {
-			return window.matchMedia(query).matches;
-		}
-		if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-			return true;
-		}
-		// include the 'heartz' as a way to have a non matching MQ to help terminate the join
-		// https://git.io/vznFH
-		var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
-		return mq(query);
-	}
-
-	if(is_touch_device4()) {
-		let actionTextElement = document.getElementById('actionText')
-		actionTextElement.innerHTML = 'Tap'
-	}
-</script>
+<script src="shrug.js"></script>
